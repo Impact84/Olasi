@@ -1,0 +1,131 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: url('foto.jpeg') no-repeat center center fixed;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.message {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+  font-size: 28px;
+  color: #d63384;
+  font-weight: bold;
+  margin-bottom: 25px;
+  transition: transform 0.3s ease;
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+.message:hover {
+  transform: scale(1.1);
+}
+
+/* Mensajes flotantes */
+#bubbles-text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.text-bubble {
+  position: absolute;
+  font-size: 18px;
+  font-family: 'cursive', sans-serif;
+  color: #d63384;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px 20px;
+  border-radius: 25px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  animation: floatText 8s ease-in-out forwards;
+  max-width: 80vw; /* ✅ Para pantallas pequeñas */
+  word-wrap: break-word;
+}
+
+@keyframes floatText {
+  0% { transform: translateY(0) scale(0.5); opacity: 0; }
+  50% { transform: translateY(-50px) scale(1.2); opacity: 1; }
+  100% { transform: translateY(-100px) scale(1); opacity: 0; }
+}
+
+/* 📱 Ajustes para celular */
+@media (max-width: 768px) {
+  body {
+    background-size: cover;
+    background-position: center;
+  }
+  .message {
+    font-size: 22px;
+    padding: 15px;
+  }
+  .text-bubble {
+    font-size: 16px;
+    padding: 8px 14px;
+    max-width: 90vw;
+  }
+}
+
+#love-button {
+  padding: 12px 20px;
+  background: #fff;
+  color: #d63384;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  margin-top: 10px;
+}
+
+#love-button:hover {
+  transform: scale(1.1);
+}
+/* Estilos del botón */
+#love-button {
+  padding: 12px 20px;
+  background: #fff;
+  color: #d63384;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
+  margin-top: 10px;
+}
+
+#love-button:hover {
+  transform: scale(1.1);
+}
+
+/* Corazones animados */
+.heart {
+  position: absolute;
+  font-size: 24px;
+  animation: fall 2s linear forwards;
+  pointer-events: none;
+}
+
+@keyframes fall {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(300px) scale(1.5); opacity: 0; }
+}
