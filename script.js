@@ -9,7 +9,7 @@ const messages = [
   "Eres mi razón de ser y mi felicidad 🌹",
   "Awawawawa 🥰",
   "Wishu wishu wishu 💞",
-  "Dia de la noviaaaaaaaaa 🥳",
+  "Dia de MI noviaaaaaaaaa 🥳",
   "La mejor novia del mundo mundial 🌎",
   "Un besho 💋",
   "Me haces tan feliz cada día 😄",
@@ -22,10 +22,13 @@ const messages = [
   "Te adoro con todo mi ser 💗",
   "Te admiro por ser tan increíble 💪",
   "Te recontramegasuper amo 💘",
-  "Verdado AWAWEWIWO 🥰",
+  "Verdadero AWAWEWIWO 🥰",
   "besho maksimo 💞",
   "Amochito C:",
   "TEAMOOOSADKJHDASK",
+  "felis birday jijija",
+  "Mi gatobola",
+  "Que bonita que eres ❤️"
 ];
 
 function createTextBubble() {
@@ -65,7 +68,7 @@ loveButton.addEventListener("click", () => {
   // 1️⃣ Mostrar el mensaje flotante "Te amo 💖"
   const bubble = document.createElement("div");
   bubble.className = "text-bubble";
-  bubble.innerText = "Te amo 💖";
+  bubble.innerText = "Feliz cum 💖";
 
   document.body.appendChild(bubble);
 
@@ -99,5 +102,6 @@ loveButton.addEventListener("click", () => {
     setTimeout(() => heart.remove(), 2000);
   }
 });
+
 
 
