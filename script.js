@@ -22,6 +22,10 @@ const messages = [
   "Te adoro con todo mi ser 💗",
   "Te admiro por ser tan increíble 💪",
   "Te recontramegasuper amo 💘",
+  "Verdado AWAWEWIWO 🥰",
+  "besho maksimo 💞",
+  "Amochito C:",
+  "TEAMOOOSADKJHDASK",
 ];
 
 function createTextBubble() {
@@ -95,4 +99,5 @@ loveButton.addEventListener("click", () => {
     setTimeout(() => heart.remove(), 2000);
   }
 });
+
 
