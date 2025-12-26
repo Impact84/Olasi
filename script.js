@@ -65,7 +65,7 @@ const colors = ["#ff6b81", "#ffcc70", "#70e1f5", "#c471ed", "#fbc2eb"];
 let colorIndex = 0;
 
 loveButton.addEventListener("click", () => {
-  // 1️⃣ Mostrar el mensaje flotante "Te amo 💖"
+  // 1️⃣ Mostrar el mensaje flotante "Feliz Cum 💖"
   const bubble = document.createElement("div");
   bubble.className = "text-bubble";
   bubble.innerText = "Feliz cum 💖";
@@ -102,6 +102,7 @@ loveButton.addEventListener("click", () => {
     setTimeout(() => heart.remove(), 2000);
   }
 });
+
 
 
 
