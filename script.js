@@ -68,7 +68,7 @@ loveButton.addEventListener("click", () => {
   // 1️⃣ Mostrar el mensaje flotante "Feliz Cum 💖"
   const bubble = document.createElement("div");
   bubble.className = "text-bubble";
-  bubble.innerText = "Feliz cum 💖";
+  bubble.innerText = "Feliz cum c: 💖";
 
   document.body.appendChild(bubble);
 
@@ -102,6 +102,7 @@ loveButton.addEventListener("click", () => {
     setTimeout(() => heart.remove(), 2000);
   }
 });
+
 
 
 
