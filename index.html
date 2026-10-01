@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los Awawewiwos por siempre</title>
+    <!-- Google Fonts para tipografías modernas y románticas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Outfit:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
+    <!-- Estilos Principales -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navbar Flotante (Glassmorphism) -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#carta">Algo que decir</a></li>
+            <li><a href="#generador">Generador de amor</a></li>
+            <li><a href="#michis">Nuestros boloides</a></li>
+            <li><a href="#bitacora">El Camino</a></li>
+        </ul>
+    </nav>
+
+    <!-- Pestaña 1: Inicio (El plano de amor) -->
+    <header id="inicio" class="section glass-panel reveal" style="padding: 40px 20px; min-height: 80vh;">
+        <h1 class="title-script" style="font-size: 4rem;">Los Awawewiwos</h1>
+        <h2 class="subtitle" style="margin-bottom: 5px; font-size: 1.2rem;">por siempre</h2>
+        <div class="counter-box" id="time-counter" style="font-size: 1.1rem; padding: 10px 20px; margin-top: 10px;">
+            <!-- Rellenado dinámicamente por JS -->
+        </div>
+
+        <div class="mosaic-container" style="margin: 20px auto 0; max-width: 350px;">
+            <!-- El canvas generará el mosaico procedural usando la foto -->
+            <canvas id="mosaicCanvas"></canvas>
+            <img id="sourceImage" src="mosaico/mosaico_principal.jpg" alt="Nosotros" style="display:none;">
+        </div>
+    </header>
+
+    <!-- Pestaña 1.5: Algo que decir (El Camino) -->
+    <section id="carta" class="section glass-panel reveal" style="position: relative;">
+        <h2 class="title-modern" style="position: relative; z-index: 10;">Tengo algo que decirte...</h2>
+        <p style="position: relative; z-index: 10; margin-bottom: 20px;">Mis palabras, mis letras, mi voz, todo es
+            tuyo.</p>
+
+        <!-- Botón que parece un sobre -->
+        <button id="open-letter-btn" class="envelope-btn"
+            onclick="document.getElementById('letter-content').classList.toggle('show'); if(!window.musicPlayed) { document.getElementById('bg-music').play(); window.musicPlayed = true; }">
+            <span class="envelope-text">Abrir carta</span>
+        </button>
+
+        <!-- Contenido de la carta (se despliega) -->
+        <div id="letter-content" class="letter-content-modal">
+            <p><strong>Hola mi amor, espero que te encuentres bien.</strong></p>
+            <p>Primero, !Feliz aniversariooooo! Aaaaaaaaaaa c:</p>
+            <p>Ya van 3 años que cumplimos juntos y estoy emocionado por todas las cosas que están por llegar. Estoy muy
+                feliz por todas las cosas que llegaron, y no puedo dejar de pensar en todo el tiempo que nos queda
+                juntos y el
+                tiempo que he estado a tu lado.</p>
+            <p>La verdad, esta cartita la escribo desde el fondo de mi corazón. Creo que ahora mismo no puedo dejar
+                plasmado aquí todo lo que siento y todo lo que pienso, todo lo que miro y todo lo que extraño, lo que me
+                hace sentir feliz o lo que me hace sentir triste. Son
+                muchas cosas, y al final necesito de otros medios para expresar esto. Necesito una forma de decirte todo
+                lo
+                que siento y que no puedo expresar con palabras.</p>
+            <p>Este pequeño detalle te lo dedico a ti y solo a ti mi gran amor y espero que te haga tan feliz como a mí
+                en este momento cuando estoy escribiendo,
+                sonriendo como tontín xd.</p>
+            <p>Así que date un buen viaje por aquí, un besho.</p>
+            <p><em>Pdta: iwiwiwi ❤️</em></p>
+        </div>
+    </section>
+
+    <!-- Pestaña 2: Generador de Cariñitos V2 -->
+    <section id="generador" class="section glass-panel reveal" style="position: relative;">
+        <h2 class="title-modern" style="position: relative; z-index: 10;">!Congratulaciones a Nosotros! ✨</h2>
+        <p style="position: relative; z-index: 10;">Porque palabras faltan, pero amor sobra.</p>
+        <button id="love-button" class="premium-button" style="z-index: 10;">Generador de amor 💖</button>
+        <div id="bubbles-container"></div>
+    </section>
+
+    <!-- Pestaña 3: La Tribu Gatuna (Bolillo, Cusi, Frijolito) -->
+    <section id="michis" class="section reveal">
+        <h2 class="title-modern text-center">!También hay que celebar con nuestro niños! ❤️</h2>
+        <p class="text-center" style="margin-bottom: 20px; color: var(--text-light);">En nuestro camino también nos
+            acompañan familiares
+            peludos, y sobre todo, bolis</p>
+        <div class="michis-grid">
+            <!-- Bolillo -->
+            <div class="michi-card">
+                <div class="michi-avatar corrupt-avatar" id="bolillo-avatar" title="¡Haz clic para reparar!">
+                    <img src="michis/bolillo_corrupto.jpg" alt="Bolillo" onerror="this.src='foto.jpeg'">
+                </div>
+                <h3 class="glitch-text-dark" data-text="Bolillo_Corrupted">Bolillo_Corrupted</h3>
+                <p>Destructor de la realidad, bolo sin salvación.</p>
+            </div>
+            <!-- Cusi -->
+            <div class="michi-card">
+                <div class="michi-avatar">
+                    <img src="michis/cusi.jpg" alt="Cusi" onerror="this.src='foto.jpeg'">
+                </div>
+                <h3>Cusi</h3>
+                <p>Dueña de la casa, le pega a su cría</p>
+            </div>
+            <!-- Frijolito / Cabezón -->
+            <div class="michi-card">
+                <div class="michi-avatar">
+                    <img src="michis/frijolito.jpg" alt="Frijolito" onerror="this.src='foto.jpeg'">
+                </div>
+                <h3>Frijolito</h3>
+                <p>Un cabezón, pero bien boni</p>
+            </div>
+            <!-- Lonjita -->
+            <div class="michi-card">
+                <div class="michi-avatar">
+                    <img src="michis/lonjita.jpg" alt="Lonjita" onerror="this.src='foto.jpeg'">
+                </div>
+                <h3>Lonjita</h3>
+                <p>Primogénita heredera, está coche</p>
+            </div>
+            <!-- Snoopibola -->
+            <div class="michi-card">
+                <div class="michi-avatar">
+                    <img src="michis/snoopibola.jpg" alt="Snoopibola" onerror="this.src='foto.jpeg'">
+                </div>
+                <h3>Snoopybola</h3>
+                <p>Guardián redondo, no se sabe las tablas</p>
+            </div>
+            <!-- Milaneso -->
+            <div class="michi-card">
+                <div class="michi-avatar">
+                    <img src="michis/milaneso.jpg" alt="Milaneso" onerror="this.src='foto.jpeg'">
+                </div>
+                <h3>Milaneso</h3>
+                <p>Vigilante chimuelo, no se baña</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pestaña 5: El Camino -->
+    <section id="bitacora" class="section reveal">
+        <h2 class="title-modern text-center">Nuestro camino juntos ❤️</h2>
+        <div class="notes-grid">
+
+            <div class="note-card note-pink scroll-reveal">
+                <h4>Nuestros inicios</h4>
+                <p>Todo empieza con nosotros, solo dos personas que no se han visto los rostros, clases virtuales,
+                    proyectos, juegos de tres en raya en el meet, y muchas cosas divertidas, momentos que uno atesora
+                    cuando recuerda y que endulzan tanto el alma que uno empieza a pensar en las casualidades del
+                    universo. Aunque no nos conocíamos aún, el hilo rojo del destino ya nos había unido de una forma muy
+                    especial. </p>
+                <div class="polaroid-gallery">
+                    <div class="polaroid"><img src="camino/inicios/1.jpg" onerror="this.src='foto.jpeg'"
+                            alt="Hombre recién llegado a Huancayo, no sabe lo que le espera, su chompa será un regalo muy bonito algún día">
+                    </div>
+                    <div class="polaroid"><video src="camino/inicios/2.mp4"
+                            style="width: 120px; height: 120px; object-fit: cover; background: #eee; border: 1px solid #e0e0e0;"
+                            autoplay loop muted playsinline></video></div>
+                    <div class="polaroid"><img src="camino/inicios/3.jpg" onerror="this.src='foto.jpeg'"
+                            alt="Cómo olvidar el nivel de nuestros informes de proyectos finales, tremenda obra de arte papois">
+                    </div>
+                    <div class="polaroid"><img src="camino/inicios/4.jpg" onerror="this.src='foto.jpeg'"
+                            alt="Mujer dedicada, trabajadora, edita videos de 'mi bebito fiu fiu' epicamente mientras hace el proyecto">
+                    </div>
+                </div>
+            </div>
+
+            <div class="note-card note-blue scroll-reveal">
+                <h4>Conociéndonos</h4>
+                <p>!Por fin ya sé como luces! Solo los vestigios del amor pueden esperar para una pareja tan singular
+                    como nosotros. El tiempo vuela, y más cuando disfrutas de un momento agradable, pero más cuando es
+                    con esa persona especial. Aún así nos tomamos nuestro tiempo y sobre todo mucho aprecio.</p>
+                <!-- Carrusel de 8 fotos -->
+                <div class="simple-carousel">
+                    <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">&#10094;</button>
+                    <div class="carousel-images">
+                        <img src="camino/conociendonos/1.jpg" onerror="this.src='foto.jpeg'"
+                            alt="Sentir miles de cosas con una sola imagen, el instante en el que me enamoré de ti fue mágico"
+                            class="carousel-img active">
+                        <img src="camino/conociendonos/2.jpg" onerror="this.src='foto.jpeg'"
+                            alt="Acá ya me tenías, soy tuyo mi amor, subir al Huaytapallana debe ser nuestra kabala todos los años"
+                            class="carousel-img">
+                        <img src="camino/conociendonos/3.jpg" onerror="this.src='foto.jpeg'"
+                            alt="Miradas de 3 años, miradas de 1 segundo, miradas que tienen toda la tensión del amor"
+                            class="carousel-img">
+                        <img src="camino/conociendonos/4.jpg" onerror="this.src='foto.jpeg'"
+                            alt="Cuidado, gente, nadie sabrá que en el bus de regreso me ofreció oler su axila, ke yico"
+                            class="carousel-img">
+                        <img src="camino/conociendonos/5.jpg" onerror="this.src='foto.jpeg'"
+                            alt="El parque kennedy, full elegancia, quiero volver contigo a ver a los michis para traerle recuerditos al bolillo"
+                            class="carousel-img">
+                        <img src="camino/conociendonos/6.jpg" onerror="this.src='foto.jpeg'"
+                            alt="Recordar esta salida es volver a vivir, y esta fotazo es el cimiento de todas las que le siguen"
+                            class="carousel-img">
+                        <img src="camino/conociendonos/7.jpg" onerror="this.src='foto.jpeg'"
+                            alt="Acá perdí el brazo, pero tranquilos, el 20 con Peralta lo vale xd (sacamos 14)"
+                            class="carousel-img">
+                        <img src="camino/conociendonos/8.jpg" onerror="this.src='foto.jpeg'"
+                            alt="Salida épica con los cheetos gigantes, hay que volver a comprar unos jijija"
+                            class="carousel-img">
+                    </div>
+                    <button class="carousel-btn next" onclick="moveCarousel(this, 1)">&#10095;</button>
+                </div>
+            </div>
+
+            <div class="note-card note-yellow scroll-reveal">
+                <h4>Recuerdos</h4>
+                <p>Todas las cosas pasan por algo, lo nuestro es más que especial, todos los momentos felices o tristes
+                    que tenemos, fueron juntos, eres mi orgullo y mi vida cariño. Recordar tantas cosas que hemos hecho
+                    me deja sin palabras con una mezcla de felicidad y amargor. Pero todas estas fotos son las más
+                    grandes pruebas de que nuestro amor lo puede todo.</p>
+                <!-- Carrusel de 19 fotos -->
+                <div class="simple-carousel">
+                    <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">&#10094;</button>
+                    <div class="carousel-images">
+                        <img src="camino/recuerdos/1.jpg" onerror="this.src='foto.jpeg'"
+                            alt="Sé que ya es un poco cliché que ponga esta imagen, es la primera de todas y es especial, como dicen los chavorrucos, es la imagen que me llevaría a la guerra"
+                            class="carousel-img active">
+                        <img src="camino/recuerdos/2.jpg" onerror="this.src='foto.jpeg'"
+                            alt="Te amo porque estás conmigo hasta el final, creo que ese día me fue bien en todo, gracias a ti."
+                            class="carousel-img">
+                        <img src="camino/recuerdos/3.jpg" onerror="this.src='foto.jpeg'"
+                            alt="Esta foto tiene un contexto flipante, y también es especial, a su manera"
+                            class="carousel-img">
+                        <img src="camino/recuerdos/4.jpg" onerror="this.src='foto.jpeg'"
+                            alt="De nuestras primeras salidas a los parquesitos, solo viviendo el momento"
+                            class="carousel-img">
+                        <img src="camino/recuerdos/5.jpg" onerror="this.src='foto.jpeg'"
+                            alt="Mi primer lomo saltado bien criollo, en Huancayo, fue contigo" class="carousel-img">
+                        <img src="camino/recuerdos/6.jpg" onerror="this.src='foto.jpeg'"
+                            alt="JDFSAJFDASHJK nuestro primer habolin, todavía teníamos nuestros collares, quemosion"
+                            class="carousel-img">
+                        <img src="camino/recuerdos/7.jpg" onerror="this.src='foto.jpeg'"
+                            alt="La primera vez que nos escapamos de clases para ir a ver las alfombras y comer poyito jijija"
+                            class="carousel-img">
+                        <img src="camino/recuerdos/8.jpg" onerror="this.src='foto.jpeg'"
+                            alt="La salida al parque con más adrenalina posible, full nervios y recuerdos bonitos"
+                            class="carousel-img">
+                        <img src="camino/recuerdos/9.jpg" onerror="this.src='foto.jpeg'"
+                            alt="Ya sabemos porque tenemos estas caras *oño*" class="carousel-img">
+                        <img src="camino/recuerdos/10.jpg" onerror="this.src='foto.jpeg'"
+                            alt="Nuestra primera escapada, quiero seguir viajando contigo a todos lados, tenemos que ir a más lugares"
+                            class="carousel-img">
+                        <img src="camino/recuerdos/11.jpg" onerror="this.src='foto.jpeg'"
+                            alt="La foto suprema, simplemente una vista tan bonita y con la mujer más hermosa a mi lado, comiendo 29 variantes de pizza, chabuca's god"
+                            class="carousel-img">
+                        <img src="camino/recuerdos/12.jpg" onerror="this.src='foto.jpeg'"
+                            alt="Cusco siempre quedará grabado en mi corazón y mente, porque tu estabas ahí conmigo "
+                            class="carousel-img">
+                        <img src="camino/recuerdos/13.jpg" onerror="this.src='foto.jpeg'"
+                            alt="Ojo, el 2do habolin fue más habolinezco, esta vez preparados" class="carousel-img">
+                        <img src="camino/recuerdos/14.jpg" onerror="this.src='foto.jpeg'" alt="Omaiga ci bba"
+                            class="carousel-img">
+                        <img src="camino/recuerdos/15.jpg" onerror="this.src='foto.jpeg'"
+                            alt="XDDDDDDDDDDDDDDDDDDDDDDDDDDDD chamare bacan es amar" class="carousel-img">
+                        <img src="camino/recuerdos/16.jpg" onerror="this.src='foto.jpeg'"
+                            alt="Simplemente me encantas, eres increíble y saber que fuiste conmigo a Cajamarca a mi casita es de lo mejor que me ha pasado"
+                            class="carousel-img">
+                        <img src="camino/recuerdos/17.jpg" onerror="this.src='foto.jpeg'"
+                            alt="Otro viaje por Trujillo, ese día fue muy elegante, no sé de donde sacámos una pelota"
+                            class="carousel-img">
+                        <img src="camino/recuerdos/18.jpg" onerror="this.src='foto.jpeg'"
+                            alt="La ultima foto en mi camita juntos, dormidos como bolos, te extraño mucho"
+                            class="carousel-img">
+                        <img src="camino/recuerdos/19.jpg" onerror="this.src='foto.jpeg'"
+                            alt="Y esos recuerdos siempre serán todos los motivos para seguir construyendo una vida contigo mi amor."
+                            class="carousel-img">
+                    </div>
+                    <button class="carousel-btn next" onclick="moveCarousel(this, 1)">&#10095;</button>
+                </div>
+            </div>
+
+            <div class="note-card note-purple scroll-reveal">
+                <h4>Problemas</h4>
+                <p>Llegó el momento de separarse, no era lo que esperábamos, pasamos cosas duras, nuestros caminos se
+                    vieron desviados, pero el amor pudo más y seguimos juntos, cada esfuerzo valió la pena y aquí
+                    estamos, más fuertes que nunca. Te extraño mucho y ya quiero verte pronto. En verdad espero que
+                    podamos tener nuestra casita algún día. </p>
+                <div class="polaroid-gallery">
+                    <div class="polaroid"><img src="camino/problemas/1.jpg" onerror="this.src='foto.jpeg'"
+                            alt="La ventaja de la distancia es que una relación se hace increíblemente más fuerte, aún con todas las dificultades y con todo en contra, pudimos celebrar mi graduación. Aún me duele no haber estado en la tuya pero tuve la dicha para volver a verte en Lima">
+                    </div>
+                    <div class="polaroid"><img src="camino/problemas/2.jpg" onerror="this.src='foto.jpeg'"
+                            alt="Escapada a Ica y más momentos juntos, cada vez que se pueda, quiero estar a tu lado abrazandote">
+                    </div>
+                    <div class="polaroid"><img src="camino/problemas/3.jpg" onerror="this.src='foto.jpeg'"
+                            alt="Demasiado bolis, comer así contigo es algo que no puedo hacer con nadie más, besho">
+                    </div>
+                    <div class="polaroid"><img src="camino/problemas/4.jpg" onerror="this.src='foto.jpeg'"
+                            alt="Full cena elegante, nos gastamos todo el referido de la tarjeta IO xd"></div>
+                </div>
+            </div>
+
+            <div class="note-card note-green scroll-reveal">
+                <h4>La distancia</h4>
+                <p>Ahora nuestro mundito en minecraft nos hace sentir como si estuvieramos juntos, algún día será un
+                    recuerdo tan memorable que parecerá hasta absurdo, hemos sabido llevar bien las cosas, aunque
+                    tengamos problemas sabremos como solucionarlo porque la confianza en el otro nos sobra.</p>
+                <div class="polaroid-gallery">
+                    <div class="polaroid"><img src="camino/distancia/1.jpg" onerror="this.src='foto.jpeg'"
+                            alt="Ella sabía yo sabía que él sabía yo sabía....."></div>
+                    <div class="polaroid"><img src="camino/distancia/2.jpg" onerror="this.src='foto.jpeg'"
+                            alt="Nuestra cocinita, está bien boni"></div>
+                    <div class="polaroid"><img src="camino/distancia/3.jpg" onerror="this.src='foto.jpeg'"
+                            alt="Nuestra primera casita en el mundito, comiendo torta c:"></div>
+                </div>
+            </div>
+
+            <div class="note-card note-orange scroll-reveal">
+                <h4>Nosotros</h4>
+                <p>Solo nosotros sabemos lo que hemos hecho para llegar hasta aquí, solo nosotros tenemos esta fortaleza
+                    y esta conexión, las cosas que vengan serán para bien, y si son para mal, los dos estaremos junstos
+                    hasta el final.</p>
+                <div class="polaroid-gallery">
+                    <div class="polaroid"><img src="camino/nosotros/1.jpg" onerror="this.src='foto.jpeg'"
+                            alt="Ya es momento de ser bolillos"></div>
+                    <div class="polaroid"><img src="camino/nosotros/2.jpg" onerror="this.src='foto.jpeg'"
+                            alt="'Metan mit'"></div>
+                    <div class="polaroid"><img src="camino/nosotros/3.jpg" onerror="this.src='foto.jpeg'"
+                            alt="*Levanta la mano en meet infinitamente*..."></div>
+                </div>
+            </div>
+
+            <div class="note-card note-mint scroll-reveal">
+                <h4>El futuro</h4>
+                <p>No sé qué nos deparará el mañana, pero estoy seguro de que quiero estar a tu lado. Porque cada
+                    momento contigo es de lo más preciado que tengo, y todo lo hermoso que nos espera en los años
+                    venideros lo
+                    construiremos juntos, tomados de la mano. Pronto tendremos nuestra casita y nuestros michis, seremos
+                    exitosos y lograremos muchas cosas juntos. Te amo cariño, quiero pasar muchos años más a tu lado. Te
+                    amo más de lo que las palabras pueden expresar.
+                    SIMPLEMENTE TE AMO.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Modal para fotos polaroid -->
+    <div id="photo-modal" class="photo-modal" onclick="this.classList.remove('active')">
+        <div class="photo-modal-content" onclick="event.stopPropagation()">
+            <span class="photo-modal-close"
+                onclick="document.getElementById('photo-modal').classList.remove('active')">&times;</span>
+            <img id="photo-modal-img" src="" alt="Ampliación">
+            <p id="photo-modal-caption"></p>
+        </div>
+    </div>
+    <!-- Audio de fondo -->
+    <audio id="bg-music" loop>
+        <source src="music/1.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+
+</html>

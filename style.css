@@ -1,0 +1,916 @@
+/* Variables de Color (Tonos Pastel y Blueprint) */
+:root {
+  --primary: #ff6b8b;
+  --secondary: #ffb6c1;
+  --bg-color: #fcf4f5;
+  /* Líneas del plano de amor */
+  --grid-color-strong: rgba(214, 51, 132, 0.08);
+  --grid-color-light: rgba(214, 51, 132, 0.03);
+  --text-dark: #4a4a4a;
+  --text-light: #7a7a7a;
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.8);
+  --shadow: 0 8px 32px rgba(255, 107, 139, 0.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-dark);
+
+  /* Efecto visual de "Plano de amor" (Blueprint grid) */
+  background-image:
+    linear-gradient(var(--grid-color-strong) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color-strong) 1px, transparent 1px),
+    linear-gradient(var(--grid-color-light) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color-light) 1px, transparent 1px);
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  background-attachment: fixed;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ================================
+   1. Navbar Glassmorphism
+================================ */
+.navbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid var(--glass-border);
+  padding: 10px 25px;
+  border-radius: 50px;
+  box-shadow: var(--shadow);
+  z-index: 1000;
+  width: auto;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 15px;
+  justify-content: center;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 8px 15px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+.navbar a:hover {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(255, 107, 139, 0.3);
+}
+
+/* ================================
+   2. Estructura de Secciones
+================================ */
+.section {
+  min-height: 100vh;
+  padding: 100px 0 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* Tipografías */
+.title-script {
+  font-family: 'Dancing Script', cursive;
+  font-size: 4rem;
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: 0px;
+  text-shadow: 2px 2px 5px rgba(255, 107, 139, 0.2);
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: var(--text-light);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.title-modern {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Contenedor Efecto Vidrio (Glass Panel) */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 30px;
+  padding: 40px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin: 20px auto;
+  width: 80%;
+  max-width: none;
+  transition: transform 0.3s ease;
+}
+
+.glass-panel:hover {
+  transform: translateY(-5px);
+}
+
+/* ================================
+   3. Elementos Interactivos
+================================ */
+/* Contador */
+.counter-box {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  padding: 15px 30px;
+  border-radius: 20px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 20px;
+  box-shadow: 0 10px 20px rgba(255, 107, 139, 0.3);
+  display: inline-block;
+}
+
+/* Botón Premium (Generador) */
+.premium-button {
+  background: linear-gradient(135deg, #ff6b8b, #ff8a9f);
+  color: white;
+  border: none;
+  padding: 15px 35px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(255, 107, 139, 0.4);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  margin-top: 20px;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Outfit', sans-serif;
+}
+
+.premium-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: skewX(-20deg);
+  transition: all 0.5s ease;
+}
+
+.premium-button:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 25px rgba(255, 107, 139, 0.5);
+}
+
+.premium-button:hover::after {
+  left: 150%;
+}
+
+/* ================================
+   4. Tribu Gatuna (Michis)
+================================ */
+.michis-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.michi-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 25px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.michi-card:hover {
+  transform: translateY(-15px) rotate(2deg);
+  box-shadow: 0 20px 40px rgba(255, 107, 139, 0.2);
+}
+
+.michi-avatar {
+  background: white;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-size: 4rem;
+}
+
+.michi-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Efecto Corrupto para Bolillo */
+.corrupt-avatar {
+  position: relative;
+  cursor: crosshair;
+}
+
+.corrupt-avatar img {
+  animation: spazz 1s steps(1) infinite;
+}
+
+@keyframes spazz {
+  0% { filter: saturate(3) hue-rotate(45deg) contrast(2) brightness(60%); transform: translate(5px, -10px) scale(1.1); }
+  10% { filter: saturate(8) hue-rotate(180deg) invert(1) contrast(5) brightness(40%); transform: translate(-15px, 12px) scale(1.2); }
+  20% { filter: saturate(1) hue-rotate(90deg) contrast(1.5) brightness(70%); transform: translate(10px, 0px) scale(1.05); }
+  30% { filter: saturate(5) hue-rotate(300deg) invert(1) contrast(3) brightness(50%); transform: translate(-5px, -5px) scale(1.15); }
+  40% { filter: saturate(10) hue-rotate(20deg) contrast(4) brightness(30%); transform: translate(12px, 15px) scale(1.25); }
+  50% { filter: saturate(2) hue-rotate(120deg) contrast(1) brightness(60%); transform: translate(-10px, 10px) scale(1.08); }
+  60% { filter: saturate(7) hue-rotate(240deg) invert(1) contrast(6) brightness(35%); transform: translate(8px, -12px) scale(1.18); }
+  70% { filter: saturate(4) hue-rotate(330deg) contrast(2) brightness(55%); transform: translate(-12px, -8px) scale(1.1); }
+  80% { filter: saturate(9) hue-rotate(60deg) invert(1) contrast(8) brightness(25%); transform: translate(15px, 5px) scale(1.22); }
+  90% { filter: saturate(3) hue-rotate(150deg) contrast(3) brightness(65%); transform: translate(-8px, 14px) scale(1.05); }
+  100% { filter: saturate(6) hue-rotate(210deg) contrast(5) brightness(45%); transform: translate(3px, -15px) scale(1.15); }
+}
+
+.corrupt-avatar::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: url('michis/bolillo_corrupto.jpg') center/cover;
+  z-index: 2;
+  pointer-events: none;
+  animation: glitch-slice 2s infinite linear alternate-reverse;
+  mix-blend-mode: exclusion;
+  opacity: 0.5;
+}
+
+@keyframes glitch-slice {
+  0% { clip-path: inset(10% 0 80% 0); transform: translate(-5px, 2px); }
+  20% { clip-path: inset(80% 0 5% 0); transform: translate(5px, -2px); }
+  40% { clip-path: inset(40% 0 40% 0); transform: translate(-5px, 2px); }
+  60% { clip-path: inset(20% 0 60% 0); transform: translate(5px, 2px); }
+  80% { clip-path: inset(60% 0 20% 0); transform: translate(-5px, -2px); }
+  100% { clip-path: inset(10% 0 80% 0); transform: translate(5px, -2px); }
+}
+
+.corrupt-avatar::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15) 1px, transparent 1px, transparent 2px);
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Texto Glitch Oscuro */
+.glitch-text-dark {
+  position: relative;
+  display: inline-block;
+  color: #222;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 0px rgba(0,0,0,0.3);
+}
+.glitch-text-dark::before, .glitch-text-dark::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+}
+.glitch-text-dark::before {
+  left: 2px;
+  text-shadow: -2px 0 red;
+  color: #000;
+  clip-path: inset(10% 0 60% 0);
+  animation: text-glitch-anim 0.2s infinite linear alternate-reverse;
+}
+.glitch-text-dark::after {
+  left: -2px;
+  text-shadow: -2px 0 cyan;
+  color: #111;
+  clip-path: inset(60% 0 10% 0);
+  animation: text-glitch-anim 0.3s infinite linear alternate-reverse;
+}
+
+@keyframes text-glitch-anim {
+  0% { clip-path: inset(20% 0 80% 0); }
+  20% { clip-path: inset(60% 0 10% 0); }
+  40% { clip-path: inset(40% 0 50% 0); }
+  60% { clip-path: inset(80% 0 5% 0); }
+  80% { clip-path: inset(10% 0 70% 0); }
+  100% { clip-path: inset(30% 0 50% 0); }
+}
+
+@keyframes glitch-noise {
+  0% { transform: translate(0, 0); filter: hue-rotate(0deg) contrast(150%); }
+  25% { transform: translate(3px, -3px); filter: hue-rotate(90deg) contrast(120%); }
+  50% { transform: translate(-3px, 3px); filter: hue-rotate(180deg) contrast(200%); }
+  75% { transform: translate(3px, 3px); filter: hue-rotate(270deg) contrast(120%); }
+  100% { transform: translate(0, 0); filter: hue-rotate(360deg) contrast(150%); }
+}
+
+.glitch-flash {
+  animation: white-flash 0.6s ease-out forwards;
+}
+
+@keyframes white-flash {
+  0% { filter: brightness(10) blur(5px); }
+  100% { filter: brightness(1) blur(0px); }
+}
+
+.michi-card h3 {
+  color: var(--primary);
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.michi-card p {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.michi-card p {
+  color: var(--text-light);
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+/* ================================
+   5. Mosaico Canvas
+================================ */
+.mosaic-container {
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  position: relative;
+  margin-top: 0px;
+  border: 5px solid white;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+  cursor: crosshair;
+}
+
+canvas:hover {
+  transform: scale(1.1);
+}
+
+/* ================================
+   6. Bitácora / Notas (Scroll)
+================================ */
+.notes-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 600px;
+  margin-top: 20px;
+}
+
+.note-card {
+  background: #fff9e6;
+  /* Estilo post-it romántico */
+  padding: 25px;
+  border-radius: 10px 10px 10px 30px;
+  box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.08);
+  position: relative;
+  border-left: 5px solid #ffcc70;
+}
+
+.note-card h4 {
+  color: #d69818;
+  margin-bottom: 10px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.8rem;
+}
+
+/* Variaciones de colores para "El Camino" */
+.note-pink {
+  background: #fff0f5;
+  border-left-color: #ffb6c1;
+}
+.note-pink h4 { color: #d63384; }
+
+.note-blue {
+  background: #f0f8ff;
+  border-left-color: #add8e6;
+}
+.note-blue h4 { color: #0077b6; }
+
+.note-yellow {
+  background: #fff9e6;
+  border-left-color: #ffcc70;
+}
+.note-yellow h4 { color: #d69818; }
+
+.note-purple {
+  background: #f8f0ff;
+  border-left-color: #dda0dd;
+}
+.note-purple h4 { color: #8a2be2; }
+
+.note-green {
+  background: #f0fff0;
+  border-left-color: #98fb98;
+}
+.note-green h4 { color: #2e8b57; }
+
+.note-orange {
+  background: #fff5ee;
+  border-left-color: #ffb347;
+}
+.note-orange h4 { color: #ff8c00; }
+
+.note-mint {
+  background: #e0ffff;
+  border-left-color: #40e0d0;
+}
+.note-mint h4 { color: #00ced1; }
+
+/* Galería tipo Polaroid */
+.polaroid-gallery {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.polaroid {
+  background: white;
+  padding: 8px 8px 30px 8px; /* Espacio abajo tipo polaroid */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  border-radius: 2px;
+  transform: rotate(-3deg);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.polaroid:nth-child(even) {
+  transform: rotate(4deg);
+}
+
+.polaroid:hover {
+  transform: scale(1.1) rotate(0deg);
+  z-index: 10;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.polaroid img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  background: #eee;
+  border: 1px solid #e0e0e0;
+}
+
+/* Carrusel Simple */
+.simple-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  margin: 15px auto;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  background: white;
+  padding: 10px 10px 40px 10px; /* Espacio extra abajo estilo polaroid */
+}
+
+.carousel-images {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-img {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  cursor: pointer;
+  pointer-events: none; /* Para que las fotos ocultas no roben clicks */
+}
+
+.carousel-img.active {
+  opacity: 1;
+  z-index: 2;
+  pointer-events: auto;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 107, 139, 0.8);
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 10;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: background 0.3s, transform 0.3s;
+}
+
+.carousel-btn:hover {
+  background: var(--primary);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-btn.prev { left: 5px; }
+.carousel-btn.next { right: 5px; }
+
+.video-card {
+  background: var(--glass-bg);
+  border-left: 5px solid var(--primary);
+  border-radius: 15px;
+}
+
+.video-placeholder {
+  background: rgba(255, 107, 139, 0.05);
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+  color: var(--primary);
+  font-style: italic;
+  font-weight: 600;
+  border: 2px dashed var(--secondary);
+}
+
+/* ================================
+   6.5. Carta de Amor Interactiva
+================================ */
+.envelope-btn {
+  position: relative;
+  /* Aquí puedes cambiar el tamaño del sobre: */
+  width: 340px;  /* Ancho del sobre */
+  height: 220px; /* Alto del sobre */
+  background: var(--primary);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 40px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 20px rgba(255, 107, 139, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.envelope-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 25px rgba(255, 107, 139, 0.6);
+}
+
+.envelope-btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: #ff8fa3; /* Bolsillo */
+  clip-path: polygon(0 0, 50% 55%, 100% 0, 100% 100%, 0 100%);
+  border-radius: 10px;
+  z-index: 1;
+}
+
+.envelope-btn::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: #ff7d94; /* Solapa */
+  clip-path: polygon(0 0, 100% 0, 50% 55%);
+  border-radius: 10px 10px 0 0;
+  z-index: 2;
+}
+
+.envelope-text {
+  position: relative;
+  z-index: 5;
+  color: white;
+  font-weight: bold;
+  /* Aquí puedes cambiar el tamaño del texto dentro del sobre */
+  font-size: 1.4rem; 
+  font-family: 'Outfit', sans-serif;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  margin-top: 60px; /* Si agrandas el sobre, quizá necesites mover el texto un poco más abajo */
+}
+
+.letter-content-modal {
+  display: none;
+  background: #fffdf5;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  margin: 20px auto 0;
+  max-width: 90%;
+  text-align: justify;
+  line-height: 1.6;
+  color: var(--text-dark);
+  font-size: 1.05rem;
+  border: 1px solid var(--secondary);
+  animation: slideDown 0.5s ease;
+}
+
+.letter-content-modal.show {
+  display: block;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Burbujas del Generador */
+#bubbles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: 30px;
+}
+
+.text-bubble {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--primary);
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 10px 25px rgba(255, 107, 139, 0.2);
+  animation: floatUp 6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  max-width: 80vw;
+  text-align: center;
+  border: 1px solid var(--secondary);
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(20px) scale(0.5);
+    opacity: 0;
+  }
+
+  15% {
+    transform: translateY(0px) scale(1.1);
+    opacity: 1;
+  }
+
+  85% {
+    transform: translateY(-30px) scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-50px) scale(0.8);
+    opacity: 0;
+  }
+}
+
+/* Corazones Explosivos */
+.heart-particle {
+  position: absolute;
+  font-size: 1.5rem;
+  animation: explode 2s ease-out forwards;
+}
+
+@keyframes explode {
+  0% {
+    transform: translate(0, 0) scale(0.5);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(var(--tx), var(--ty)) scale(1.5) rotate(var(--rot));
+    opacity: 0;
+  }
+}
+
+/* Huellitas Dinámicas */
+.paw-print {
+  position: absolute;
+  font-size: 2rem;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: pawFade 1.5s ease-out forwards;
+  z-index: 9999;
+}
+
+@keyframes pawFade {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+
+  30% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Scroll Reveal Classes (Aparecer al hacer scroll) */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.scroll-reveal.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ================================
+   8. Adaptabilidad Móvil (Responsive)
+================================ */
+@media (max-width: 768px) {
+  .navbar {
+    width: 90%;
+    padding: 10px 15px;
+  }
+
+  .navbar ul {
+    gap: 8px;
+    justify-content: center;
+  }
+
+  .navbar a {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  .title-script {
+    font-size: 3.5rem;
+  }
+
+  .title-modern {
+    font-size: 2rem;
+  }
+
+  .section {
+    padding: 100px 15px 40px;
+  }
+
+  .michis-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================================
+   8. Modal para fotos Polaroid
+================================ */
+.photo-modal {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.photo-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.photo-modal-content {
+  position: relative;
+  background: white;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+  transform: scale(0.8) translateY(20px);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  max-width: 90vw;
+  max-height: 90vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.photo-modal.active .photo-modal-content {
+  transform: scale(1) translateY(0);
+}
+
+.photo-modal-content img {
+  max-width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  border-radius: 3px;
+}
+
+.photo-modal-caption {
+  position: relative;
+  margin-top: 15px;
+  width: 100%;
+  text-align: center;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.8rem;
+  color: var(--text-dark);
+  line-height: 1.2;
+}
+
+.photo-modal-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  font-size: 35px;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 10;
+}
+
+.photo-modal-close:hover {
+  transform: scale(1.2);
+}
